@@ -28,48 +28,48 @@ import retrofit2.http.QueryMap;
 public class MessageRequest extends BaseData {
 
     // Read only
-    @Expose(serialize = false) private String id = null;
-    @Expose(serialize = false) private Long recipient_count = null;
-    @Expose(serialize = false) private Long sent_count = null;
-    @Expose(serialize = false) private Long delivered_count = null;
-    @Expose(serialize = false) private Long read_count = null;
-    @Expose(serialize = false) private Long converted_count = null;
-    @Expose(serialize = false) private Long canceled_count = null;
-    @Expose(serialize = false) private Long failed_count = null;
-    @Expose(serialize = false) private Long created_date = null;
-    @Expose(serialize = false) private Long last_update_date = null;
-    @Expose(serialize = false) private String state = null;
+    @Expose(serialize = false) private String id;
+    @Expose(serialize = false) private Long recipient_count;
+    @Expose(serialize = false) private Long sent_count;
+    @Expose(serialize = false) private Long delivered_count;
+    @Expose(serialize = false) private Long read_count;
+    @Expose(serialize = false) private Long converted_count;
+    @Expose(serialize = false) private Long canceled_count;
+    @Expose(serialize = false) private Long failed_count;
+    @Expose(serialize = false) private Long created_date;
+    @Expose(serialize = false) private Long last_update_date;
+    @Expose(serialize = false) private String state;
 
     // Read/Write
-    @Expose private String from = null;
-    @Expose private String conversation_id = null;
-    @Expose private List<String> to = null;
-    @Expose private String campaign_id = null;
-    @Expose private String program_id = null;
-    @Expose private String subject = null;
-    @Expose private String application_id = null;
-    @Expose private String external_id = null;
-    @Expose private List<String> attachments = null;
-    @Expose private String body = null;
-    @Expose private String consent_requirement = null;
-    @Expose private String criteria = null;
-    @Expose private String scheduled_delivery_time = null;
-    @Expose private String scheduled_delivery_time_zone = null;
-    @Expose private String expiry_time = null;
-    @Expose private Boolean test_message_flag = null;
-    @Expose private String pause_before_transmit = null;
-    @Expose private String pause_expiry_time = null;
+    @Expose private String from;
+    @Expose private String conversation_id;
+    @Expose private List<String> to;
+    @Expose private String campaign_id;
+    @Expose private String program_id;
+    @Expose private String subject;
+    @Expose private String application_id;
+    @Expose private String external_id;
+    @Expose private List<String> attachments;
+    @Expose private String body;
+    @Expose private String consent_requirement;
+    @Expose private String criteria;
+    @Expose private String scheduled_delivery_time;
+    @Expose private String scheduled_delivery_time_zone;
+    @Expose private String expiry_time;
+    @Expose private Boolean test_message_flag;
+    @Expose private String pause_before_transmit;
+    @Expose private String pause_expiry_time;
 
-    @Expose private List<String> contact_delivery_address_priority = null;
-    @Expose private String failover = null;
-    @Expose private BigDecimal price_threshold = null;
-    @Expose private List<String> sender_id_sort_criteria = null;
-    @Expose private String src_language = null;
-    @Expose private String dst_language = null;
-    @Expose private Boolean translate = null;
-    @Expose private Integer translations_count = null;
-    @Expose private Integer translations_failed_count = null;
-    @Expose private Integer translations_performed_count = null;
+    @Expose private List<String> contact_delivery_address_priority;
+    @Expose private String failover;
+    @Expose private BigDecimal price_threshold;
+    @Expose private List<String> sender_id_sort_criteria;
+    @Expose private String src_language;
+    @Expose private String dst_language;
+    @Expose private Boolean translate;
+    @Expose private Integer translations_count;
+    @Expose private Integer translations_failed_count;
+    @Expose private Integer translations_performed_count;
 
     public String getId() {
         return id;
@@ -482,6 +482,17 @@ public class MessageRequest extends BaseData {
     }
 
     /**
+     *
+     * @param attachment  Id of an attachment to add to the message.
+     */
+    public void addAttachment(final String attachmentId) {
+        if (attachments == null) {
+            attachments = new ArrayList<>();
+        }
+        attachments.add(attachmentId);
+    }
+
+    /**
      * This is the original message body as supplied by application,
      * prior to keyword processing.
      *
@@ -777,7 +788,7 @@ public class MessageRequest extends BaseData {
         }
 
         static class StateRequest {
-            @Expose String state = null;
+            @Expose String state;
         }
 
         public interface MessageRequestApi {

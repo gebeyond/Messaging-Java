@@ -17,7 +17,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
-import org.apache.logging.log4j.LogManager;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -33,14 +32,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @author jaase
  */
 public class Session {
-
-    private static final org.apache.logging.log4j.Logger LOGGER = LogManager
-            .getLogger(Session.class);
-
     private final String baseUrl;
     private final String apiUrl;
     private AuthInfo auth;
     private final HttpLoggingInterceptor okLogInterceptor;
+
+    Session(final String baseUrl, AuthInfo auth)
+            throws KeyManagementException, NoSuchAlgorithmException {
+        this(baseUrl, auth, HttpLoggingInterceptor.Level.NONE);
+    }
+
+    Session(final String baseUrl, AuthInfo auth, HttpLoggingInterceptor.Level logLevel)
+            throws KeyManagementException, NoSuchAlgorithmException {
+        this.baseUrl = baseUrl;
+        this.apiUrl = baseUrl + "/scg-external-api/api/v1/";
+        this.auth = auth;
+        this.okLogInterceptor = new HttpLoggingInterceptor();
+        okLogInterceptor.setLevel(logLevel);
+    }
 
     final String getHostname() {
         String hostname;
@@ -62,8 +71,6 @@ public class Session {
     public OkHttpClient getOkClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(chain -> {
-                    LOGGER.debug("Interceptor for headers is called.");
-
                     Builder builder= chain.request().newBuilder();
 
                     if (auth.getCompanyId() != null) {
@@ -98,15 +105,6 @@ public class Session {
                 .readTimeout(3000, TimeUnit.SECONDS)
                 .writeTimeout(3000, TimeUnit.SECONDS)
                 .build();
-    }
-
-    Session(final String baseUrl, AuthInfo auth)
-            throws KeyManagementException, NoSuchAlgorithmException {
-        this.baseUrl = baseUrl;
-        this.apiUrl = baseUrl + "/scg-external-api/api/v1/";
-        this.auth = auth;
-        this.okLogInterceptor = new HttpLoggingInterceptor();
-        okLogInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
     String getBaseUrl() {

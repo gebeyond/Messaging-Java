@@ -34,6 +34,7 @@ public class ContactAddressHistory extends BaseData {
     @Expose(serialize = false) Long application_id = null;
     @Expose(serialize = false) Long created_date = null;
     @Expose(serialize = false) Long last_update_date = null;
+    @Expose(serialize = false) Integer version_number = null;
 
     /**
      * Unique identifier, allocated by SCG at the time of the history

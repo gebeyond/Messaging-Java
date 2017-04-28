@@ -40,6 +40,7 @@ public class Channel extends BaseData {
     // Read / Write
     @Expose private String name = null;
     @Expose private String priority = null;
+    @Expose private String role = null;
     @Expose private String description = null;
 
     public String getId() {
@@ -113,6 +114,14 @@ public class Channel extends BaseData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     /**

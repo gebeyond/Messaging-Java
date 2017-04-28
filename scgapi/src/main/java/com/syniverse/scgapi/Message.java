@@ -55,16 +55,15 @@ public class Message extends BaseData {
     @Expose private String conversion_info_source;
     @Expose private String reply_to;
     @Expose private List<String> attachments;
-
     @Expose private String type;
     @Expose private String message_delivery_provider;
     @Expose private String contact_id;
     @Expose private BigDecimal price;
     @Expose private String language;
     @Expose private String failed_translation;
+    @Expose private String protocol_error;
     @Expose private String failed_origin_id;
     @Expose private String failover;
-
     @Expose private String scheduled_delivery_time;
     @Expose private String expiry_time;
     @Expose private Long created_date;
@@ -112,6 +111,10 @@ public class Message extends BaseData {
 
     public String getFailedTranslation() {
         return failed_translation;
+    }
+
+    public String getProtocolError() {
+        return protocol_error;
     }
 
     public String getFailedOriginId() {

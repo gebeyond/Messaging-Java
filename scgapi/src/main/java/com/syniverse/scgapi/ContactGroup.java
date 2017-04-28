@@ -42,7 +42,7 @@ public class ContactGroup extends BaseData {
     @Expose(serialize = false) private Long application_id = null;
 
     // Special members
-    @Expose private String version_number;
+    @Expose private Integer version_number;
 
     // Read/write members
     @Expose private String external_id;
@@ -155,11 +155,11 @@ public class ContactGroup extends BaseData {
         return type;
     }
 
-    public String getVersionNumber() {
+    public Integer getVersionNumber() {
         return version_number;
     }
 
-    public void setVersionNumber(String version_number) {
+    public void setVersionNumber(Integer version_number) {
         this.version_number = version_number;
     }
 

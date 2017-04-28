@@ -41,6 +41,7 @@ public class Call extends BaseData {
     @Expose private String state = null;
     @Expose private String direction = null;
     @Expose private String bridge_id = null;
+    @Expose private Boolean recording_enabled = null;
 
     public String getId() {
         return id;
@@ -144,6 +145,14 @@ public class Call extends BaseData {
 
     public void setBridgeId(String bridge_id) {
         this.bridge_id = bridge_id;
+    }
+
+    public Boolean getRecordingEnabled() {
+        return recording_enabled;
+    }
+
+    public void setRecordingEnabled(Boolean recording_enabled) {
+        this.recording_enabled = recording_enabled;
     }
 
 

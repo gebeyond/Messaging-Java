@@ -43,7 +43,7 @@ public class Contact extends BaseData {
         @Expose(serialize = false) Long created_date = null;
         @Expose(serialize = false) Long last_update_date = null;
 
-        @Expose Long version_number = null;
+        @Expose Integer version_number = null;
 
         @Expose private String message_delivery_provider = null;
         @Expose private String sender_id_address = null;
@@ -90,18 +90,18 @@ public class Contact extends BaseData {
             this.token = token;
         }
 
-        public Long getVersionNumber() {
+        public Integer getVersionNumber() {
             return version_number;
         }
 
-        public void setVersionNumber(Long version_number) {
+        public void setVersionNumber(Integer version_number) {
             this.version_number = version_number;
         }
     }
 
     public class AccessToken extends BaseData {
         @Expose Integer duration = null;
-        @Expose Long version_number = null;
+        @Expose Integer version_number = null;
         @Expose(serialize = false) String id = null;
         @Expose(serialize = false) Long expiry_time = null;
         @Expose(serialize = false) Long application_id = null;
@@ -116,11 +116,11 @@ public class Contact extends BaseData {
             this.duration = duration;
         }
 
-        public Long getVersionNumber() {
+        public Integer getVersionNumber() {
             return version_number;
         }
 
-        public void setVersionNumber(Long version_number) {
+        public void setVersionNumber(Integer version_number) {
             this.version_number = version_number;
         }
 

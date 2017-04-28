@@ -30,8 +30,9 @@ public class Keywords extends BaseData {
 
     // Read Only
     @Expose(serialize = false) private String id;
+    @Expose(serialize = false) private Long created_date;
     @Expose(serialize = false) private Long last_update_date;
-    @Expose(serialize = false) private Long application_id = null;
+    @Expose(serialize = false) private Long application_id;
 
     // Special
     @Expose private String version_number;
@@ -65,6 +66,10 @@ public class Keywords extends BaseData {
 
     public Long getLastUpdateDate() {
         return last_update_date;
+    }
+
+    public Long getCreatedDate() {
+        return created_date;
     }
 
     public String getVersionNumber() {

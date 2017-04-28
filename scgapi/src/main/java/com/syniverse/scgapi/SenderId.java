@@ -40,7 +40,7 @@ public class SenderId extends BaseData {
     @Expose private Long last_update_date = null;
 
     // Special
-    @Expose private Long version_number = null;
+    @Expose private Integer version_number = null;
 
     // Read / write
     @Expose private String parent_id = null;
@@ -78,11 +78,11 @@ public class SenderId extends BaseData {
         return last_update_date;
     }
 
-    public Long getVersionNumber() {
+    public Integer getVersionNumber() {
         return version_number;
     }
 
-    public void setVersionNumber(Long version_number) {
+    public void setVersionNumber(Integer version_number) {
         this.version_number = version_number;
     }
 

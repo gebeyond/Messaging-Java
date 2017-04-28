@@ -33,7 +33,7 @@ public class ContactAddressStatus extends BaseData {
     @Expose(serialize = false) Long last_update_date;
 
     // Special
-    @Expose private String version_number;
+    @Expose(serialize = false) Integer version_number = null;
 
     // Read/Write
     @Expose private String address_type;
@@ -91,11 +91,11 @@ public class ContactAddressStatus extends BaseData {
         return last_update_date;
     }
 
-    public String getVersionNumber() {
+    public Integer getVersionNumber() {
         return version_number;
     }
 
-    public void setVersionNumber(String version_number) {
+    public void setVersionNumber(Integer version_number) {
         this.version_number = version_number;
     }
 
