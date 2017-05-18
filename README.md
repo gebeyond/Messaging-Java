@@ -1,5 +1,5 @@
 
-# What is this?
+# SCG Java SDK
 This is the Java version of the SCG API.
 We have prepared simple to use Java classes, representing the
 different REST API interfaces.
