@@ -322,3 +322,11 @@ Message Request qteDxVrAhlMlmTwDrMAvMM is in state COMPLETED with 2 delivered an
  - Message FDLoHMUmLjjYK51J531Xo5 is in state DELIVERED, error code: null, error reason: null
 ```
 
+# Running integration-tests from Jenkins
+
+Using the maven target, MAVEN_OPTS could be:
+```text
+-DargLine="-DauthFile=/etc/jenkins/java-ci-auth.json -DtestConfig=/etc/jenkins/java-ci-test.json -Dlog4j.configurationFile=log4j.xml"
+```
+
+Template configuration files for integration tests are present in the scgapi folder.

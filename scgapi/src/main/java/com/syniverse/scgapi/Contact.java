@@ -7,7 +7,6 @@ package com.syniverse.scgapi;
 
 import com.google.gson.annotations.Expose;
 import static com.syniverse.scgapi.BaseData.genericList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
@@ -745,9 +744,9 @@ public class Contact extends BaseData {
     @Expose private String external_id = null;
     @Expose private String first_name = null;
     @Expose private String last_name = null;
-    @Expose private String birth_date = null;
-    @Expose private Date first_acquisition_date = null;
-    @Expose private Date last_acquisition_date = null;
+    @Expose private Long birth_date = null;
+    @Expose private Long first_acquisition_date = null;
+    @Expose private Long last_acquisition_date = null;
     @Expose private String primary_mdn = null;
     @Expose private String primary_addr_line1 = null;
     @Expose private String primary_addr_line2 = null;
@@ -847,11 +846,11 @@ public class Contact extends BaseData {
         this.last_name = last_name;
     }
 
-    public String getBirthDate() {
+    public Long getBirthDate() {
         return birth_date;
     }
 
-    public void setBirthDate(String birth_date) {
+    public void setBirthDate(Long birth_date) {
         this.birth_date = birth_date;
     }
 
@@ -861,7 +860,7 @@ public class Contact extends BaseData {
      * in to any program.
      * @return timestamp
      */
-    public Date getFirstAcquisitionDate() {
+    public Long getFirstAcquisitionDate() {
         return first_acquisition_date;
     }
 
@@ -872,7 +871,7 @@ public class Contact extends BaseData {
      *
      * @param firstAcquisitionDate timestamp
      */
-    public void setFirstAcquisitionDate(Date firstAcquisitionDate) {
+    public void setFirstAcquisitionDate(Long firstAcquisitionDate) {
         this.first_acquisition_date = firstAcquisitionDate;
     }
 
@@ -883,7 +882,7 @@ public class Contact extends BaseData {
      *
      * @return timestamp
      */
-    public Date getLastAcquisitionDate() {
+    public Long getLastAcquisitionDate() {
         return last_acquisition_date;
     }
 
@@ -894,7 +893,7 @@ public class Contact extends BaseData {
      *
      * @param lastAcquisitionDate timestamp
      */
-    public void setLastAcquisitionDate(Date lastAcquisitionDate) {
+    public void setLastAcquisitionDate(Long lastAcquisitionDate) {
         this.last_acquisition_date = lastAcquisitionDate;
     }
 

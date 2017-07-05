@@ -1,2 +1,8 @@
 scgapi/target
 *.jar
+/ci/tests/nbproject/
+/scgapi/tests/target/
+/scgapi/tests/nbproject/
+/tests/nbproject/
+/tests/target/
+/scgapi/nbproject/
