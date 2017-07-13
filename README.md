@@ -81,7 +81,7 @@ If you want to list available Sender Id's, it can be done as easy as:
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
 
     // Request the complete list of sender id's from the server,
     // where the class_id is COMMECRIAL and state is ACTIVE, and iterate
@@ -120,7 +120,7 @@ Sender id tcS8h40LXgvJsGMQI93WK4 has capabilities [MMS, SMS]
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
 
     // Get a handle to the Contacts resource
     Contact.Resource res = new Contact.Resource(session);
@@ -171,7 +171,7 @@ Contact id xzrw4ukXaINXzgwu5XLnb1, John Doe has external id "Test Extid 12345"
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
 
     // Send SMS message
     MessageRequest.Resource res = new MessageRequest.Resource(session);
@@ -210,7 +210,7 @@ This works as above, except for the to field in create()
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
     Contact.Resource contactRes = new Contact.Resource(session);
 
     // Create some contacts
@@ -255,7 +255,7 @@ This works as above, except for the to field in create()
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
 
     // Upload an attachment
     Attachment attachmentTemplate = new Attachment();
@@ -296,7 +296,7 @@ Sent message request 9NeqCbNXBYvRO73jC2rbc5
 
     // Prepare a session to the server.
     Scg scg = new Scg();
-    Session session = scg.connect("https://beta.api.syniverse.com", auth);
+    Session session = scg.connect("https://api.syniverse.com", auth);
 
     MessageRequest.Resource mrqRes = new MessageRequest.Resource(session);
     MessageRequest mrq = mrqRes.get("qteDxVrAhlMlmTwDrMAvMM");
