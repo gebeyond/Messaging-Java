@@ -7,7 +7,9 @@ different REST API interfaces.
 The Java API hides some of the REST API's constraints, like
 lists being returned in logical pages of <i>n</i> records. With the
 Java SDK, the list() method returns a iterator that returns
-items, util there are no more.
+items, until there are no more.
+
+Please register for a free account at https://developer.syniverse.com to get your API keys.
 
 ## How to use the SDK
 All the data objects follow a common pattern.
@@ -46,7 +48,7 @@ valid values.
 All objects that can be updated or deleted has <b>update()</b> and/or
 <b>delete()</b> methods. The resource of an object also have <b>delete()</b>
 methods, so if you need to delete an object you just know by it's id,
-there is no need to instatiate it. You jst call:
+there is no need to instatiate it. You just call:
 
 ```java
     res.delete(id)
@@ -102,7 +104,7 @@ If you want to list available Sender Id's, it can be done as easy as:
 This should produce output like:
 ```text
 Sender id oX1iQToXaWAXY6u3yLhja4 has capabilities [WECHAT]
-Sender id m2sb4eA3mlEConWJzsfYq6 has capabilities [WECHAT]
+Sender id m2sb4eA3mlEConWJzsfYq6 has capabilities [FACEBOOK]
 Sender id ln9sk9JF6insXcJ5nUzKK3 has capabilities [SMS]
 Sender id AE0vtyghu8dIrrpXesXPK1 has capabilities [MMS, SMS]
 Sender id 3hTOgeTWYlflMB2zmYNoP has capabilities [SMS]
