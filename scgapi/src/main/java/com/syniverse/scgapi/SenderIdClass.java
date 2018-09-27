@@ -8,6 +8,7 @@ package com.syniverse.scgapi;
 import com.google.gson.annotations.Expose;
 import static com.syniverse.scgapi.BaseData.genericList;
 import java.util.Map;
+import java.util.Set;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
@@ -32,7 +33,7 @@ public class SenderIdClass extends BaseData {
     @Expose private String name = null;
     @Expose private String description = null;
     @Expose private String designation = null;
-    @Expose private String applicable_countries = null;
+    @Expose private Set<String> applicable_countries = null;
     @Expose private Long country_peak_throughput = null;
     @Expose private Long country_peak_total_throughput = null;
     @Expose private Long country_daily_throughput = null;
@@ -66,7 +67,7 @@ public class SenderIdClass extends BaseData {
      *      delimited using iso country code. Allow a keyword of 'OTHER'
      *      for sender classes that are not country specific.
      */
-    public String getApplicableCountries() {
+    public Set<String> getApplicableCountries() {
         return applicable_countries;
     }
 
