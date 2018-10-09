@@ -33,6 +33,13 @@ import retrofit2.http.QueryMap;
  */
 public class SenderId extends BaseData {
 
+    static public class State {
+        @Expose private String state = null;
+        @Expose private String register_method = null;
+        @Expose private String verification_code = null;
+        @Expose private Integer version_number = null;
+    };
+
     // Read only
     @Expose private String id = null;
     @Expose(serialize = false) private Long application_id = null;
@@ -61,6 +68,10 @@ public class SenderId extends BaseData {
     @Expose private String consent_managed_by = null;
     @Expose private List<String> capabilities = null;
     @Expose private Boolean check_whitelist;
+
+    @Expose private String foreign_id = null;
+    @Expose private String register_method = null;
+    @Expose private String verification_code = null;
 
     public String getId() {
         return id;
@@ -518,6 +529,64 @@ public class SenderId extends BaseData {
         this.check_whitelist = checkWhitelist;
     }
 
+    public String getForeignId() {
+        return foreign_id;
+    }
+
+    public void setForeignId(String foreign_id) {
+        this.foreign_id = foreign_id;
+    }
+
+    public String getRegisterMethod() {
+        return register_method;
+    }
+
+    public void setRegisterMethod(String register_method) {
+        this.register_method = register_method;
+    }
+
+    public String getVerificationCode() {
+        return verification_code;
+    }
+
+    public void setVerificationCode(String verification_code) {
+        this.verification_code = verification_code;
+    }
+
+    /** Activate the sender id. */
+    public void activate() throws ScgException {
+        State state = new State();
+        state.version_number = version_number;
+        state.state = "ACTIVE";
+        ((Resource)getResource()).setState(id, state);
+    }
+
+    /** Deactivate the sender id */
+    public void deactivate() throws ScgException {
+        State state = new State();
+        state.version_number = version_number;
+        state.state = "INACTIVE";
+        ((Resource)getResource()).setState(id, state);
+    }
+
+    /** Initialize Whatsapp registration on a WHATSAPP sender-id */
+    void initWhatsappRegistration(final String registerMethod) throws ScgException {
+        State state = new State();
+        state.version_number = version_number;
+        state.state = "PENDING_CONFIRMATION";
+        state.register_method = registerMethod;
+        ((Resource)getResource()).setState(id, state);
+    }
+
+    /** Activate a Whatsapp sendder id with the verification code provided by Whatsapp */
+    void activateWhatsappRegistration(final String verificationCode) throws ScgException {
+        State state = new State();
+        state.version_number = version_number;
+        state.state = "ACTIVE";
+        state.verification_code = verificationCode;
+        ((Resource)getResource()).setState(id, state);
+    }
+
     /**
      * Resource class for SenderId
      */
@@ -545,6 +614,9 @@ public class SenderId extends BaseData {
 
             @POST("scg-external-api/api/v1/messaging/sender_ids/purchase")
             Call<CreateResponse> purchase(@Query("parent_id") String parentId);
+
+            @POST("scg-external-api/api/v1/messaging/sender_ids/{id}")
+            Call<Object> setState(@Path("id") String id, @Body State payload);
         }
 
         private SenderIdApi senderIdApi_;
@@ -697,6 +769,12 @@ public class SenderId extends BaseData {
         public String purchase(final String parentId) throws ScgException {
             return ExecuteWithRetry(() -> {
                 return Session.Execute(senderIdApi_.purchase(parentId)).id;
+            }, 0);
+        }
+
+        public void setState(final String id, final State state) throws ScgException {
+            ExecuteWithRetry(() -> {
+                return Session.Execute(senderIdApi_.setState(id, state));
             }, 0);
         }
     }
