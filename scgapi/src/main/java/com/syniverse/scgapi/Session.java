@@ -135,8 +135,12 @@ public class Session {
             // Auth error
             throw new Error.AuthError();
         }
-
-        throw new Error.ServerFailure(resp.code(), resp.errorBody().toString());
+        try {
+            final String reason = resp.errorBody().string();
+            throw new Error.ServerFailure(resp.code(), reason);
+        } catch (IOException ex) {
+            throw new Error.ServerFailure(resp.code(), resp.errorBody().toString());
+        }
     }
 
     interface CratingApiCallback {
