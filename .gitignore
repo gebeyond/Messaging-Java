@@ -1,2 +1,9 @@
-scgapi/target
+syniverse-api/target/
 *.jar
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/
+
+*.iml
