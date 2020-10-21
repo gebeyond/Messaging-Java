@@ -54,7 +54,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <java.version>12</java.version>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <jackson.version>2.10.2</jackson.version>
+        <jackson.version>2.11.2</jackson.version>
         <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit -->
         <retrofit.version>2.7.1</retrofit.version>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
