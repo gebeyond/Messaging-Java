@@ -62,7 +62,7 @@
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <gson-fire.version>1.8.3</gson-fire.version>
         <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
-        <kotlin-stdlib.version>1.3.61</kotlin-stdlib.version>
+        <kotlin-stdlib.version>1.4.10</kotlin-stdlib.version>
         <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor -->
         <logging-interceptor.version>4.3.1</logging-interceptor.version>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
